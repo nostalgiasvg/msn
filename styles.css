@@ -1,0 +1,655 @@
+/* =====================================================
+   FELIZ CUMPLE · MSN Messenger (visual v2, Figma Make)
+   ===================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+button, textarea { cursor: pointer; font-family: inherit; }
+html, body { height: 100%; overflow: hidden; }
+
+:root {
+  /* Ventana / chrome */
+  --win-border:  #6593cf;
+  --win-face:    #ece9d8;
+
+  /* Barra de título */
+  --title-1:     #1d6ce3;
+  --title-2:     #0053e1;
+  --title-3:     #0a93f2;
+  --btn-blue:    #387df3;
+  --btn-red:     #e14024;
+
+  /* Paneles claros (menú, herramientas, para:, formato, estado) */
+  --panel-menu:      #f1efe2;
+  --panel-menu-line: #d0cebf;
+  --panel-tool-a:    #eceff6;
+  --panel-tool-b:    #d2dcf0;
+  --panel-tool-c:    #b8cbea;
+  --panel-tool-line: #a6b9d8;
+  --panel-to:        #ecebf5;
+  --panel-to-line:   #d3d5e4;
+  --accent:          #1e4d8c;
+  --accent-soft:     #4c6e9f;
+
+  /* MSN */
+  --msn-contact: #2f589f;   /* nombre / texto del contacto */
+  --msn-me:      #a33120;   /* nombre / texto propio */
+
+  --text-dark:   #1a1a1a;
+  --muted:       #646464;
+}
+
+body { font-family: 'Inter', system-ui, sans-serif; }
+
+/* =====================================================
+   ESCRITORIO
+   ===================================================== */
+.desktop {
+  position: relative;
+  width: 100%;
+  height: 100dvh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 40px;
+  background: url('bliss.jpg') center center / cover no-repeat;
+}
+
+.crt {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 60;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px, transparent 1px,
+    rgba(0,0,0,.035) 1px, rgba(0,0,0,.035) 2px
+  );
+}
+
+/* =====================================================
+   VENTANA MSN
+   ===================================================== */
+.msn-window {
+  position: relative;
+  z-index: 10;
+  width: clamp(320px, 94vw, 760px);
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background: var(--win-face);
+  border: 3px solid var(--win-border);
+  border-radius: 10px 10px 4px 4px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0,0,0,.28);
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 12px;
+  color: var(--text-dark);
+}
+
+/* Barra de título */
+.msn-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 8px 5px 12px;
+  min-height: 32px;
+  background: linear-gradient(180deg, var(--title-1) 0%, var(--title-2) 45%, var(--title-3) 100%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 13px;
+  user-select: none;
+}
+.msn-titlebar-left { display: flex; align-items: center; gap: 6px; min-width: 0; }
+.msn-icon { width: 18px; height: 18px; object-fit: contain; flex-shrink: 0; }
+.msn-title-text {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.msn-btns { display: flex; gap: 3px; flex-shrink: 0; }
+.mbtn {
+  width: 22px; height: 22px;
+  background: var(--btn-blue);
+  border: 1px solid rgba(255,255,255,.5);
+  border-radius: 3px;
+  color: #fff;
+  display: flex; align-items: center; justify-content: center;
+}
+.mbtn--close { background: var(--btn-red); font-size: 11px; font-weight: 900; }
+.mbtn-glyph--min { width: 8px; height: 2px; background: #fff; align-self: flex-end; margin-bottom: 3px; }
+.mbtn-glyph--max { width: 9px; height: 9px; border: 2px solid #fff; }
+
+/* Barra de menú */
+.msn-menubar {
+  display: flex;
+  gap: 14px;
+  padding: 4px 10px;
+  background: var(--panel-menu);
+  border-bottom: 1px solid var(--panel-menu-line);
+  font-size: 12px;
+}
+.msn-menubar span { padding: 1px 4px; cursor: default; color: var(--text-dark); border-radius: 2px; }
+.msn-menubar span:hover { background: #316ac5; color: #fff; }
+
+/* Barra de herramientas */
+.msn-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 14px;
+  background: linear-gradient(180deg, var(--panel-tool-a), var(--panel-tool-b) 55%, var(--panel-tool-c));
+  border-bottom: 1px solid var(--panel-tool-line);
+}
+.msn-toolbar-tools { display: flex; gap: 6px; align-items: flex-start; flex-wrap: nowrap; min-width: 0; }
+.tbtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  font-size: 9px;
+  color: var(--accent);
+  transition: background .1s ease;
+}
+.tbtn:hover { background: rgba(255,255,255,.4); }
+.tbtn .ticon {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #fff;
+  border: 1px solid #a2b7df;
+}
+.tbtn .ticon svg { width: 16px; height: 16px; }
+.tbtn .tlabel { font-weight: 500; font-size: 10px; white-space: nowrap; }
+.msn-brand {
+  font-weight: 800;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--accent);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.msn-brand-dot { color: #ea4335; }
+
+/* =====================================================
+   CUERPO
+   ===================================================== */
+.msn-body {
+  display: flex;
+  gap: 10px;
+  min-height: 0;
+  flex: 1;
+  padding: 10px;
+  background: #f1f4fa;
+}
+
+.msn-main {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.msn-to-row {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 6px 10px;
+  background: var(--panel-to);
+  border: 1px solid var(--panel-to-line);
+  border-radius: 4px;
+  font-size: 12px;
+  color: var(--muted);
+}
+.msn-to-line { display: flex; align-items: center; gap: 5px; min-width: 0; }
+.msn-to-row strong { color: var(--text-dark); flex-shrink: 0; }
+.msn-to-status { color: var(--muted); }
+.msn-to-personal {
+  color: var(--muted);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* Log de conversación */
+.msn-log {
+  flex: 1;
+  min-height: 150px;
+  max-height: 38vh;
+  overflow-y: auto;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  scroll-behavior: smooth;
+  background: #fff;
+  border: 1px solid #96aec6;
+  border-radius: 4px;
+}
+.msn-log::-webkit-scrollbar { width: 8px; }
+.msn-log::-webkit-scrollbar-track { background: #edf1f8; }
+.msn-log::-webkit-scrollbar-thumb { background: #a6b9d8; border-radius: 4px; }
+
+.msg { animation: msgIn .25s ease; }
+@keyframes msgIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.msg-name {
+  font-weight: 700;
+  font-size: 12px;
+}
+.msg.from-contact .msg-name { color: var(--msn-contact); }
+.msg.from-me .msg-name { color: var(--msn-me); }
+.msg-name::after { content: " dice:"; font-weight: 400; color: var(--muted); font-size: 11px; }
+.msg-text {
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--text-dark);
+}
+
+/* Indicador "está escribiendo…" */
+.msn-typing {
+  padding: 0 4px;
+  font-size: 11px;
+  color: var(--msn-contact);
+  min-height: 14px;
+}
+.msn-typing.active::after {
+  content: "●●●";
+  display: inline-block;
+  margin-left: 4px;
+  letter-spacing: 2px;
+  animation: typingBlink 1s steps(1) infinite;
+}
+@keyframes typingBlink {
+  0%, 100% { opacity: .3; }
+  50% { opacity: .9; }
+}
+
+/* Barra de formato (decorativa) */
+.msn-formatbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0 8px;
+  height: 30px;
+  background: var(--panel-to);
+  border: 1px solid var(--panel-to-line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.fbtn {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.fbtn:hover { background: rgba(100,130,200,.15); }
+.fbtn-serif { font-family: Georgia, 'Times New Roman', serif; font-weight: 700; font-size: 13px; }
+.fbar-sep { width: 1px; height: 16px; background: var(--panel-to-line); flex-shrink: 0; }
+
+/* Respuestas rápidas (chips con las opciones del nodo actual) */
+.msn-quickreplies {
+  display: none;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+}
+.msn-quickreplies.active { display: flex; }
+.qbtn {
+  background: #fff;
+  border: 1px solid var(--btn-blue);
+  border-radius: 14px;
+  padding: 5px 12px;
+  font-size: 11.5px;
+  line-height: 1;
+  color: var(--accent);
+  font-weight: 500;
+}
+.qbtn:hover { background: #eaf1ff; }
+.qbtn:active { transform: scale(.94); }
+
+/* Zona de escritura */
+.msn-compose {
+  display: flex;
+  gap: 8px;
+  align-items: flex-start;
+}
+.msn-input {
+  flex: 1;
+  min-height: 44px;
+  max-height: 44px;
+  resize: none;
+  border: 1px solid #96aec6;
+  border-radius: 4px;
+  padding: 8px;
+  font-family: inherit;
+  font-size: 12px;
+  color: var(--text-dark);
+  background: #fff;
+  outline: none;
+  transition: border-color .15s ease;
+}
+.msn-input:focus { border-color: var(--btn-blue); }
+.msn-input:disabled {
+  color: var(--muted);
+  background: #f4f4f0;
+}
+.msn-compose-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 88px;
+  flex-shrink: 0;
+}
+.mbtn2 {
+  height: 32px;
+  font-size: 11.5px;
+  font-weight: 700;
+  background: linear-gradient(180deg, #fcfdfe, #eceef3 55%, #dcdfe7);
+  border: 1px solid #7f9db9;
+  border-radius: 6px;
+  color: var(--text-dark);
+}
+.mbtn2:hover { filter: brightness(.97); }
+.mbtn2:active { filter: brightness(.93); }
+.mbtn2.disabled { color: var(--muted); pointer-events: none; }
+
+/* =====================================================
+   PANEL DE FOTOS (lateral derecho)
+   ===================================================== */
+.msn-photos {
+  width: 90px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.photo-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 4px;
+  background: #fff;
+  border: 1px solid #a4b9d6;
+  border-radius: 6px;
+  position: relative;
+}
+.photo-frame {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  overflow: hidden;
+  background: #edf1f8;
+}
+.photo-frame img { width: 100%; height: 100%; object-fit: cover; }
+.photo-label { font-size: 9.5px; color: var(--muted); text-align: center; max-width: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.photo-caret {
+  position: absolute;
+  right: 6px;
+  bottom: 4px;
+  font-size: 9px;
+  color: var(--accent-soft);
+}
+
+/* =====================================================
+   BARRA DE ESTADO
+   ===================================================== */
+.msn-statusbar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 12px;
+  font-size: 11px;
+  color: var(--muted);
+  background: #dde5f2;
+  border-top: 1px solid var(--panel-tool-line);
+}
+.msn-statusbar-deco {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.deco-a { font-weight: 700; color: var(--accent-soft); font-size: 11px; }
+.status-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+}
+.msn-statusbar .mute-toggle {
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  padding: 1px 6px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.msn-statusbar .mute-toggle:hover { background: rgba(0,0,0,.06); }
+
+/* =====================================================
+   CHROME DECORATIVO → aviso al hacer click
+   ===================================================== */
+.deco-btn { cursor: pointer; }
+.deco-btn:active { filter: brightness(.92); }
+
+.deco-modal-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  background: rgba(10, 20, 40, .45);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.deco-modal-overlay.active { display: flex; }
+.deco-modal {
+  width: min(340px, 100%);
+  background: var(--win-face);
+  border: 3px solid var(--win-border);
+  border-radius: 8px 8px 4px 4px;
+  overflow: hidden;
+  box-shadow: 0 10px 28px rgba(0,0,0,.35);
+  animation: decoModalIn .18s ease;
+}
+@keyframes decoModalIn {
+  from { transform: scale(.92); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+.deco-modal-titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 5px 6px 5px 10px;
+  min-height: 28px;
+  background: linear-gradient(180deg, var(--title-1) 0%, var(--title-2) 45%, var(--title-3) 100%);
+}
+.deco-modal-titletext {
+  color: #fff;
+  font-weight: 700;
+  font-size: 11px;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+}
+.deco-modal-body {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 24px 18px;
+}
+.deco-modal-icon {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+.deco-modal-body p {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dark);
+  line-height: 1.4;
+}
+.deco-modal-actions {
+  display: flex;
+  justify-content: center;
+  padding: 0 20px 20px;
+}
+.deco-modal-ok {
+  min-width: 88px;
+  padding: 6px 18px;
+  font-size: 12px;
+  color: var(--text-dark);
+  background: linear-gradient(180deg, #fdfdfd, #d8d5c9);
+  border: 1px solid #716f64;
+  border-radius: 3px;
+  outline: 1px dotted #5a584e;
+  outline-offset: -4px;
+}
+.deco-modal-ok:hover { background: linear-gradient(180deg, #fff, #e3e1d8); }
+.deco-modal-ok:active { filter: brightness(.95); }
+
+/* =====================================================
+   CONFETI (dentro de la ventana, sin pantalla aparte)
+   ===================================================== */
+.confetti-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 26;
+  overflow: hidden;
+  pointer-events: none;
+}
+.confetti-piece {
+  position: absolute;
+  font-size: 14px;
+  color: var(--msn-me);
+  pointer-events: none;
+  animation: fall linear forwards;
+}
+@keyframes fall {
+  from { transform: translateY(-20px) rotate(0deg); opacity: 1; }
+  to   { transform: translateY(320px) rotate(180deg); opacity: 0; }
+}
+
+/* Efecto zumbido (nudge) */
+/* Vibra en bucle mientras dure el audio del zumbido (ver triggerNudge en app.js) */
+.msn-window.nudge { animation: nudgeShake .13s ease-in-out infinite; }
+@keyframes nudgeShake {
+  0%, 100% { transform: translate(0,0); }
+  25% { transform: translate(-6px,2px); }
+  50% { transform: translate(6px,-2px); }
+  75% { transform: translate(-5px,1px); }
+}
+.nudge-flash {
+  position: absolute;
+  inset: 0;
+  background: #fff;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 25;
+}
+.nudge-flash.flash { animation: flashOn .25s ease; }
+@keyframes flashOn {
+  0% { opacity: 0; }
+  40% { opacity: .55; }
+  100% { opacity: 0; }
+}
+
+/* =====================================================
+   TASKBAR (reutilizada del estilo XP)
+   ===================================================== */
+.taskbar {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 40px;
+  background: linear-gradient(180deg, #2a66d6, #1747a8);
+  border-top: 1px solid #7fa8f0;
+  display: flex;
+  align-items: center;
+  padding: 3px 4px;
+  gap: 4px;
+  z-index: 20;
+  font-family: 'Inter', system-ui, sans-serif;
+}
+.start-btn {
+  display: flex; align-items: center; gap: 5px;
+  padding: 4px 12px 4px 8px;
+  height: 30px;
+  background: linear-gradient(180deg, #6fce4a, #3f9c22);
+  border: 1px solid #2c7a12;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  text-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+.win-logo { font-size: 14px; }
+.tb-sep { width: 1px; height: 26px; background: rgba(255,255,255,.3); margin: 0 2px; }
+.tb-item {
+  display: flex; align-items: center; gap: 5px;
+  padding: 3px 10px;
+  height: 28px;
+  min-width: 130px;
+  font-size: 11px;
+  color: #fff;
+  background: linear-gradient(180deg, rgba(255,255,255,.18), rgba(255,255,255,.02));
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 4px;
+}
+.tb-item-icon { width: 15px; height: 15px; object-fit: contain; flex-shrink: 0; }
+.tb-clock {
+  margin-left: auto;
+  padding: 3px 10px;
+  height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 11px;
+  color: #fff;
+}
+
+/* =====================================================
+   RESPONSIVE
+   ===================================================== */
+@media (max-width: 640px) {
+  .msn-formatbar .fbtn-label { display: none; }
+  .msn-formatbar { gap: 6px; }
+}
+
+@media (max-width: 480px) {
+  .msn-window { width: calc(100vw - 14px); max-height: 92vh; }
+  .msn-body { flex-direction: column; padding: 8px; gap: 8px; }
+  .msn-photos { width: 100%; flex-direction: row; }
+  .photo-panel { flex: 1; }
+  .photo-frame { max-width: 64px; margin: 0 auto; }
+  .tb-item { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .msn-toolbar .tbtn span.tlabel { display: none; }
+  .msn-toolbar { padding: 6px 8px; }
+  .msn-brand { font-size: 16px; }
+  .msn-log { max-height: 32vh; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .crt, .msg, .msn-window.nudge, .confetti-piece { animation: none !important; }
+}
