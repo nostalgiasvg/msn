@@ -1,4 +1,4 @@
-# ✎ Invitación de Cumple · MSN Messenger
+# MSN Messenger
 
 Una invitación de cumpleaños interactiva con estética Windows XP:
 al abrir la página, se despliega una ventana de MSN Messenger clásica
