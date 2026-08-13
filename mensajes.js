@@ -227,7 +227,7 @@ const MSN_CONFIG = {
     quienEres: {
       bot: [
         { text: "oieee, una cosita...", typingMs: 1200 },
-        { text: "usté quién es? 😳", typingMs: 1400 },
+        { text: "me puedes decir quién eres? 😳", typingMs: 1400 },
       ],
       fallback: {
         text: "mmm no caigo, qué palo! y si me dices tu nombre pero tal como sale en el DNI (sin apellidos, obvio)? 🙄",
