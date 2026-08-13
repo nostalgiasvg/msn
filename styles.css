@@ -376,7 +376,7 @@ body { font-family: 'Inter', system-ui, sans-serif; }
    PANEL DE FOTOS (lateral derecho)
    ===================================================== */
 .msn-photos {
-  width: 90px;
+  width: 180px;
   display: flex;
   flex-direction: column;
   gap: 10px;
@@ -642,7 +642,7 @@ body { font-family: 'Inter', system-ui, sans-serif; }
   .msn-body { flex-direction: column; padding: 8px; gap: 8px; }
   .msn-photos { width: 100%; flex-direction: row; }
   .photo-panel { flex: 1; }
-  .photo-frame { max-width: 64px; margin: 0 auto; }
+  .photo-frame { max-width: 128px; margin: 0 auto; }
   .tb-item { min-width: 0; flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .msn-toolbar .tbtn span.tlabel { display: none; }
   .msn-toolbar { padding: 6px 8px; }

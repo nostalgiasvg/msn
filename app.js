@@ -34,6 +34,8 @@ const el = {
   decoModalOverlay: document.getElementById("decoModalOverlay"),
   decoModalClose:   document.getElementById("decoModalClose"),
   decoModalOk:      document.getElementById("decoModalOk"),
+  decoModalTitleText: document.getElementById("decoModalTitleText"),
+  taskbarLabel:     document.getElementById("taskbarLabel"),
 };
 
 let muted = localStorage.getItem(K_MUTE) === "1";
@@ -208,7 +210,10 @@ function init() {
   const me = cfg.me || { name: "Tú", kaomoji: "(ﾉ◕ヮ◕)ﾉ" };
 
   el.titleText.textContent = cfg.meta?.windowTitle || "Conversación — MSN Messenger";
-  document.title = cfg.meta?.pageTitle || "feliz_cumple.exe";
+  const pageTitle = cfg.meta?.pageTitle || "feliz_cumple.exe";
+  document.title = pageTitle;
+  el.decoModalTitleText.textContent = pageTitle;
+  el.taskbarLabel.textContent = pageTitle;
   // En esta línea concreta no queremos el "✎" decorativo del nombre
   // (sí se sigue mostrando en el log de mensajes y en el panel de fotos)
   el.toName.textContent = contact.name.replace(/\s*✎\s*$/, "").trim();

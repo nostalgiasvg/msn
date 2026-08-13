@@ -47,8 +47,8 @@ const MSN_CONFIG = {
     name:      "m_ariia",
     status:    "(Conectada)",
     personalMessage: "ミ★ ✨😏🌸 𝘵𝘳𝘢𝘮𝘢𝘯𝘥𝘰 𝘢𝘭𝘨𝘰 🌸😏✨ ★彡",
-    statusMsg: "[name] está escribiendo",
-    photo:     /fotos/m_ariia.png,
+    statusMsg: "m_ariia está escribiendo",
+    photo:     "fotos/m_ariia.png",
     kaomoji:   "(｡◕‿◕｡)",
   },
 
@@ -66,8 +66,8 @@ const MSN_CONFIG = {
       id:       "daniela",
       keywords: ["Daniela", "Urrea", "mamá de Margarita"],
       name:     "Daniela",
-      photo:    /fotos/daniela.png,
-      kaomoji:  "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+      photo:    "fotos/daniela.png",
+      kaomoji:  "🌼",
       personalMessage: "✨🌼🥂 ɱιɾα, ρυñҽƚα, ɳσ ɱҽ ϙυιƚҽɳ ҽʅ ρҽɾɾҽσ 🥂🌼✨",
       entryNode: "daniela_saludo",
     },
@@ -75,10 +75,73 @@ const MSN_CONFIG = {
       id:       "luis",
       keywords: ["Luis", "Luisito", "Luisete"],
       name:     "Luis",
-      photo:    /fotos/luis.png,
-      kaomoji:  "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+      photo:    "fotos/luis.png",
+      kaomoji:  "🤘",
       personalMessage: "🐾🤘💚 𝔢𝔰𝔱𝔲𝔳𝔢 𝔟𝔞𝔦𝔩𝔞𝔫𝔡𝔬 𝔠𝔬𝔫 𝔩𝔞 𝔪𝔞𝔩𝔞 𝔰𝔲𝔢𝔯𝔱𝔢 💚🤘🐾",
       entryNode: "luis_saludo",
+    },
+    {
+      id:       "daniel",
+      keywords: ["Daniel", "Dani", "tu cuñado"],
+      name:     "Daniel",
+      photo:    "fotos/daniel.png",
+      kaomoji:  "👒",
+      personalMessage: "★¸.•☆•.¸★ 🌊🌞_a_la_madre_de_julia_se_la_respeta_🌞🌊 ★⡀.•☆•.★",
+      entryNode: "daniel_saludo",
+    },
+    {
+      id:       "laura",
+      keywords: ["Laura", "Lau", "tu prima Lau", "tu prima Laura"],
+      name:     "Laura",
+      photo:    "fotos/laura.png",
+      kaomoji:  "🍡",
+      personalMessage: "꧁•⊹٭★🎵 𝙸'𝚖 𝚓𝚞𝚜𝚝 𝚊 𝚔𝚒𝚍 𝚊𝚗𝚍 𝚕𝚒𝚏𝚎 𝚒𝚜 𝚊 𝚗𝚒𝚐𝚑𝚝𝚖𝚊𝚛𝚎 🎵★٭⊹•꧂",
+      entryNode: "laura_saludo",
+    },
+    {
+      id:       "paula",
+      keywords: ["Paula", "Pau", "tu prima Pau", "tu prima Paula"],
+      name:     "Paula",
+      photo:    "fotos/paula.png",
+      kaomoji:  "👘",
+      personalMessage: "🖤😜 𝕤𝕠𝕣𝕣𝕪𝕞𝕒𝕤𝕖𝕟! 𝕤𝕚 𝕟𝕠 𝕔𝕠𝕟𝕥𝕖𝕤𝕥𝕠, 𝕖𝕤𝕥𝕠𝕪 𝕧𝕚𝕖𝕟𝕕𝕠 𝕒𝕟𝕚𝕞𝕖 😜🖤",
+      entryNode: "paula_saludo",
+    },
+    {
+      id:       "erika",
+      keywords: ["Erika", "Erikis"],
+      name:     "Erika",
+      photo:    "fotos/erika.png",
+      kaomoji:  "🤘",
+      personalMessage: "`✵•.¸,✵°✵.｡.✰ half-kawaii😜🖤, half-me-cago-en-tus-☠️✰.｡.✵°✵,¸.•✵´ ",
+      entryNode: "erika_saludo",
+    },
+    {
+      id:       "sheila",
+      keywords: ["Sheila", "Shei", "Shei Shei"],
+      name:     "Sheila",
+      photo:    "fotos/sheila.png",
+      kaomoji:  "🎳",
+      personalMessage: "✨🌹 🅷🅾🆈 🆅🅰 🅰 🆂🅴🆁 🅴🅻 🅳🅸🅰 🅼🅴🅽🅾🆂 🅿🅴🅽🆂🅰🅳🅾 🌹✨",
+      entryNode: "sheila_saludo",
+    },
+    {
+      id:       "celeste",
+      keywords: ["Celeste", "Ce", "C"],
+      name:     "Celeste",
+      photo:    "fotos/celeste.png",
+      kaomoji:  "🧘🏻‍♀️",
+      personalMessage: "🧘🏻‍♀️💖_be_soft_and_radical_💖🧘🏻‍♀️",
+      entryNode: "celeste_saludo",
+    },
+    {
+      id:       "jarrys",
+      keywords: ["Jarrys", "Jota", "J"],
+      name:     "Jarrys",
+      photo:    "fotos/jarrys.png",
+      kaomoji:  "🎧",
+      personalMessage: "/_so_like_september_i_fall_down_🍂",
+      entryNode: "jarrys_saludo",
     },
   ],
 
@@ -102,8 +165,8 @@ const MSN_CONFIG = {
   event: {
     date:  "Sábado 19 de septiembre",
     time:  "17:00h",
-    place: "Mi casa, if you know, you know",
-    note:  "Trae lo que te apetezca, porque lo importante es que estés ♥️✨",
+    place: "mi casa, ¡no hay pérdida!",
+    note:  "no requeriría nada más que tu presencia, porque lo importante es que estés ♥️✨ ¿qué me dices?",
   },
 
   // ---------------------------------------------------
@@ -167,7 +230,7 @@ const MSN_CONFIG = {
         { text: "usté quién es? 😳", typingMs: 1400 },
       ],
       fallback: {
-        text: "mmm no caigo, qué palo! y si me dices cuál es tu nombre? 🙄",
+        text: "mmm no caigo, qué palo! y si me dices tu nombre pero tal como sale en el DNI (sin apellidos, obvio)? 🙄",
         typingMs: 900,
       },
     },
@@ -184,21 +247,70 @@ const MSN_CONFIG = {
     },
     luis_saludo: {
       bot: [
-        { text: "Luiiiiis!🤘 Holaaa!  Hoy vengo a proponerte un plan un poco muggle... ", typingMs: 1800 },
-        { text: "Puede no surgir un 🐍sectumsempra🐍 pero, sí que habrá tarta 🍰!!! ", typingMs: 1800 },
+        { text: "Ay vale, Luiiiiis!🤘 Holaaa! Te propongo un plan un poco muggle... ", typingMs: 1800 },
+        { text: "Puede que no incluya un sectumsempra🐍 pero, sí que habrá tarta 🍰!!! ", typingMs: 1800 },
+      ],
+      next: "start",
+    },
+    daniel_saludo: {
+      bot: [
+        { text: "Ay vale! Danieeeeel! Lo que te propongo no implica derribar torres me temo...", typingMs: 1800 },
+        { text: "Pero sí que implica tarta 🍰!!! ", typingMs: 1800 },
+      ],
+      next: "start",
+    },
+    laura_saludo: {
+      bot: [
+        { text: "Ay Lau! ♥️ Justo quería proponerte algo que pasará antes de que podamos hablar en japonés...", typingMs: 1800 },
+        { text: "y que igual implicaría una visita a MonroeBakes y también incluye a Dani por supuesto jijiji 🎑", typingMs: 1800 },
+      ],
+      next: "start",
+    },
+    paula_saludo: {
+      bot: [
+        { text: "Ay PauPau!💘 Puessss justo quería proponerte un plan muy de normies pero que este año siento que se lo merece ", typingMs: 1800 },
+        { text: "si no puedes no te rayes, que hay mucha vida por delante para repetirlo! 🧚", typingMs: 1800 },
+      ],
+      next: "start",
+    },
+    erika_saludo: {
+      bot: [
+        { text: "Ay Erikis, eres túuuu!🖤 Quería escribirte justo que, si te apetece y puedes porque 🐶🐶, tengo una propuesta (obvio con Iker incluido 🖤)", typingMs: 1800 },
+        { text: "algo que nunca hago pero que siento que este año podría ser buena idea, ¡no sé, tú me entiendes!", typingMs: 1800 },
+      ],
+      next: "start",
+    },
+    sheila_saludo: {
+      bot: [
+        { text: "Ay Shei Sheiiii🌹 Vengo a proponerte algo, aunque requiera usar una mesa no tan increíblemente increíble como la tuya 🥹🥹🥹", typingMs: 1800 },
+        { text: "es algo que no he hecho antes pero que creo que en esta ocasión quiero hacerlo y compartirlo con vosotras (porque la chica de la orla siempre está incluida 💖💖)", typingMs: 1800 },
+      ],
+      next: "start",
+    },
+    celeste_saludo: {
+      bot: [
+        { text: "Ay Ce, eres tú!✨ Quería proponerte un plan, cero presión y 100% chill; que incluiría a toda crew 🥰", typingMs: 1800 },
+        { text: "igual no vuelve a pasar pero esta vez siento que es lo que me haría feliz y más aún si os sumáis 💖✨", typingMs: 1800 },
+      ],
+      next: "start",
+    },
+    jarrys_saludo: {
+      bot: [
+        { text: "Jarrys, que eres tú!✨ Quería proponerte un plan, que puede o no incluir hablar de pokemon ZA 👀", typingMs: 1800 },
+        { text: "pero que sí que me gustaría que te incluyera a ti y a toda tu crew 🥰", typingMs: 1800 },
       ],
       next: "start",
     },
 
     start: {
       bot: [
-        { text: "eeh! ¿sigues ahí? 🫪", typingMs: 1300 },
-        { text: "es que tengo que contarte algo...", typingMs: 1700 },
-        { text: "pero antes, ¿cómo estás? ¿va todo bien?", typingMs: 1200 },
+        { text: "me enrollo un montón, ¿sigues ahí? 🫪", typingMs: 1300 },
+        { text: "en fin! que te iba a contar eso pero primero...", typingMs: 1700 },
+        { text: "¿cómo estás? ¿va todo bien?", typingMs: 1200 },
       ],
       options: [
         { label: "muy bien ♥️", keywords: ["bien", "genial", "perfecto", "estupendo", "guay"], goto: "bien" },
-        { label: "fatal, gracias 🙃", keywords: ["mal", "regular", "meh", "cansada", "cansado"], goto: "mal" },
+        { label: "fatal, gracias 🙃", keywords: ["mal", "fatal", "regular", "meh", "cansada", "cansado"], goto: "mal" },
       ],
     },
 
@@ -233,7 +345,21 @@ const MSN_CONFIG = {
       ],
       options: [
         { label: "¡tu cumple 🎂🎉!", keywords: ["cumple", "cumpleaños", "cumpleanos", "birthday"], goto: "acertaste" },
-        { label: "sigo sin tener ni idea", keywords: ["*"], goto: "acertaste" },
+        { label: "sigo sin tener ni idea", keywords: ["*"], goto: "pista3" },
+      ],
+    },
+
+    // Si insiste en "ni idea" otra vez, vuelve a pista2 — así el
+    // bucle pista2 ⇄ pista3 se puede repetir tantas veces como haga
+    // falta, y "tu cumple" (en cualquiera de las dos) sale hacia
+    // "acertaste" siempre.
+    pista3: {
+      bot: [
+        { text: "¿En serio? Otra pista: soplaré 36 velas 🎂👀", typingMs: 1600 },
+      ],
+      options: [
+        { label: "¡tu cumple 🎂🎉!", keywords: ["cumple", "cumpleaños", "cumpleanos", "birthday"], goto: "acertaste" },
+        { label: "sigo sin tener ni idea", keywords: ["*"], goto: "pista2" },
       ],
     },
 
@@ -241,12 +367,12 @@ const MSN_CONFIG = {
       bot: [
         { text: "¡yassss! ♥️", typingMs: 1100 },
         { text: "y me gustaría que te vinieras a celebrar conmigo", typingMs: 1400 },
-        { text: "va a ser el {{event.date}}, a las {{event.time}}", typingMs: 1900, nudge: true },
+        { text: "va a ser el {{event.date}}, a las {{event.time}}", typingMs: 1900 },
         { text: "en {{event.place}}", typingMs: 1500 },
         { text: "{{event.note}}", typingMs: 1800 },
       ],
       options: [
-        { label: "¡Cuenta conmigo, amiga!", keywords: ["si", "sí", "alli", "allí", "estare", "estaré", "claro", "confirmo", "ahi", "ahí", "voy"], goto: "confirmado" },
+        { label: "cuenta conmigo ☺️", keywords: ["si", "sí", "alli", "allí", "estare", "estaré", "claro", "confirmo", "ahi", "ahí", "voy", "cuenta conmigo"], goto: "confirmado" },
         { label: "no voy a poder 🥲", keywords: ["no puedo", "no", "no voy a poder", "no voy"], goto: "insistir" },
       ],
     },
@@ -256,14 +382,24 @@ const MSN_CONFIG = {
         { text: "si te insisto, ¿valdría para algo? jajajaj", typingMs: 1700 },
       ],
       options: [
+        { label: "de verdad no puedo", keywords: ["no puedo", "no voy", "imposible", "no podré", "de verdad no", "en serio no", "no"], goto: "noPasaNada" },
         { label: "vaaaaale, ahí estaré 🧐", keywords: ["*"], goto: "confirmado" },
+      ],
+    },
+
+    // Salida real para quien de verdad no puede venir — antes esto
+    // no existía y cualquier respuesta en "insistir" acababa
+    // forzando "confirmado" como si hubiera dicho que sí.
+    noPasaNada: {
+      bot: [
+        { text: "no te preocupes, celebramos otro día. ¡No nos vamos a perder de vista! ♥️✨", typingMs: 1600 },
       ],
     },
 
     confirmado: {
       bot: [
         { text: "VIVAAA! Nos vemos allí entonces 😎", typingMs: 1500 },
-        { text: "no hace falta que hagas nada más, ¡nos vemos pronto! 💁🏻‍♀️", typingMs: 1700 },
+        { text: "confírmame vía 📲, ¡y nos vemos pronto! 💁🏻‍♀️", typingMs: 1700 },
       ],
       celebrate: true,
     },
