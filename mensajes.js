@@ -18,8 +18,8 @@ const MSN_CONFIG = {
   // 1) DATOS DE LA VENTANA
   // ---------------------------------------------------
   meta: {
-    pageTitle:   "invitacion_cumple.exe",   // pestaña del navegador
-    windowTitle: "Conversación — MSN Messenger",
+    pageTitle:   "msn_messenger.exe",   // pestaña del navegador
+    windowTitle: "MSN Messenger",
   },
 
   // ---------------------------------------------------
@@ -44,11 +44,11 @@ const MSN_CONFIG = {
   //    el "mensaje personal" clásico de MSN.
   // ---------------------------------------------------
   contact: {
-    name:      "Invitad@ ✎",
+    name:      "m_ariia",
     status:    "(Conectada)",
-    personalMessage: "tramando algo... (¬‿¬)",
-    statusMsg: "(⁎˃ᴗ˂⁎) tiene algo que contarte",
-    photo:     null,
+    personalMessage: "ミ★ ✨😏🌸 𝘵𝘳𝘢𝘮𝘢𝘯𝘥𝘰 𝘢𝘭𝘨𝘰 🌸😏✨ ★彡",
+    statusMsg: "[name] está escribiendo",
+    photo:     /fotos/m_ariia.png,
     kaomoji:   "(｡◕‿◕｡)",
   },
 
@@ -60,45 +60,25 @@ const MSN_CONFIG = {
 
   // ---------------------------------------------------
   // 2.1) INVITAD@S (identificación al empezar)
-  //
-  //    Antes de nada, TÚ (contact) preguntas "¿quién eres?"
-  //    y esperas a que quien esté al otro lado escriba su
-  //    nombre. Si lo que escribe coincide con las `keywords`
-  //    de alguien de esta lista, esa persona pasa a ser "me"
-  //    (nombre/foto/kaomoji propios) durante el resto de la
-  //    conversación. Si no coincide con nadie, vuelves a
-  //    preguntar — nadie sigue sin identificarse.
-  //
-  //    Cada invitad@:
-  //      id:       identificador interno (no se muestra)
-  //      keywords: palabras que reconoces como "es est@"
-  //      name/photo/kaomoji: sustituyen a los de `me`
-  //      personalMessage: (opcional) sustituye SOLO para esta
-  //                 persona la frase "tramando algo..." que se
-  //                 ve bajo tu nombre arriba de la conversación
-  //                 (contact.personalMessage). Déjalo sin poner
-  //                 (o quítalo) para que vea la frase genérica.
-  //      entryNode: (opcional) el id de un nodo de `flow`
-  //                 propio de esta persona — uno o dos
-  //                 mensajes a su medida (un chiste interno,
-  //                 por ejemplo) antes de reengancharse a la
-  //                 conversación común. Déjalo en null para
-  //                 ir directo a `afterIdentifyNode`.
-  //
-  //    Duplica el bloque de Daniela (de ejemplo) para cada
-  //    invitad@ real: cambia id/keywords/name/photo/kaomoji,
-  //    y si le escribes un saludo a medida, el `entryNode` del
-  //    nodo que crees para ella/él en `flow` (ver más abajo).
   // ---------------------------------------------------
   people: [
     {
       id:       "daniela",
       keywords: ["Daniela", "Urrea", "mamá de Margarita"],
       name:     "Daniela",
-      photo:    null,
+      photo:    /fotos/daniela.png,
       kaomoji:  "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
-      personalMessage: "escapándonos a ver Harry Potter (¬‿¬)",
+      personalMessage: "✨🌼🥂 ɱιɾα, ρυñҽƚα, ɳσ ɱҽ ϙυιƚҽɳ ҽʅ ρҽɾɾҽσ 🥂🌼✨",
       entryNode: "daniela_saludo",
+    },
+    {
+      id:       "luis",
+      keywords: ["Luis", "Luisito", "Luisete"],
+      name:     "Luis",
+      photo:    /fotos/luis.png,
+      kaomoji:  "(ﾉ◕ヮ◕)ﾉ*:･ﾟ✧",
+      personalMessage: "🐾🤘💚 𝔢𝔰𝔱𝔲𝔳𝔢 𝔟𝔞𝔦𝔩𝔞𝔫𝔡𝔬 𝔠𝔬𝔫 𝔩𝔞 𝔪𝔞𝔩𝔞 𝔰𝔲𝔢𝔯𝔱𝔢 💚🤘🐾",
+      entryNode: "luis_saludo",
     },
   ],
 
@@ -120,10 +100,10 @@ const MSN_CONFIG = {
   //    actualiza en todos los mensajes que lo usan.
   // ---------------------------------------------------
   event: {
-    date:  "Sábado 12 de septiembre",
-    time:  "20:00h",
-    place: "Mi casa (te paso la dirección aparte)",
-    note:  "Trae lo que te apetezca, lo importante eres tú (づ｡◕‿‿◕｡)づ",
+    date:  "Sábado 19 de septiembre",
+    time:  "17:00h",
+    place: "Mi casa, if you know, you know",
+    note:  "Trae lo que te apetezca, porque lo importante es que estés ♥️✨",
   },
 
   // ---------------------------------------------------
@@ -171,7 +151,7 @@ const MSN_CONFIG = {
   // Qué dice el contacto cuando el usuario escribe algo que
   // no coincide con ninguna keyword del nodo actual.
   fallback: {
-    text: "jsjs no te pillé eso (・_・;) prueba con una de estas opciones ↓",
+    text: "jiji, VAYA qué palo, no te pillo. ¿Por qué no pruebas con alguna de las opciones de abajo? 👇 ",
     typingMs: 900,
   },
 
@@ -183,11 +163,11 @@ const MSN_CONFIG = {
     // a esperar (nunca deja pasar sin identificar).
     quienEres: {
       bot: [
-        { text: "psst, espera un momento (・_・?)", typingMs: 1200 },
-        { text: "perdona, ¿quién eres?", typingMs: 1400 },
+        { text: "oieee, una cosita...", typingMs: 1200 },
+        { text: "usté quién es? 😳", typingMs: 1400 },
       ],
       fallback: {
-        text: "mmm no te reconozco (・_・;) prueba a escribir tu nombre",
+        text: "mmm no caigo, qué palo! y si me dices cuál es tu nombre? 🙄",
         typingMs: 900,
       },
     },
@@ -197,86 +177,93 @@ const MSN_CONFIG = {
     // otro nombre (ej. "alex_saludo") y apúntalo desde su entryNode.
     daniela_saludo: {
       bot: [
-        { text: "Holichi! Hoy no vengo a proponerte escaparnos a ver Harry Potter pero casi... 😏", typingMs: 1800 },
-        { text: "Sé que todo depende de tus horarios pero quería mandarte esta invitación igualmente ♥️", typingMs: 1800 },
+        { text: "Ah vale! Daniela 🌼, holichi! Hoy no vengo a proponerte escaparnos a ver Harry Potter pero casi... 😏", typingMs: 1800 },
+        { text: "Sé que todo depende de tus horarios pero...", typingMs: 1800 },
+      ],
+      next: "start",
+    },
+    luis_saludo: {
+      bot: [
+        { text: "Luiiiiis!🤘 Holaaa!  Hoy vengo a proponerte un plan un poco muggle... ", typingMs: 1800 },
+        { text: "Puede no surgir un 🐍sectumsempra🐍 pero, sí que habrá tarta 🍰!!! ", typingMs: 1800 },
       ],
       next: "start",
     },
 
     start: {
       bot: [
-        { text: "holaaa ¿estás ahí? (・_・?)", typingMs: 1300 },
-        { text: "tengo que contarte algo... pero antes quiero saber algo tuyo", typingMs: 1700 },
-        { text: "¿qué tal andas?", typingMs: 1200 },
+        { text: "eeh! ¿sigues ahí? 🫪", typingMs: 1300 },
+        { text: "es que tengo que contarte algo...", typingMs: 1700 },
+        { text: "pero antes, ¿cómo estás? ¿va todo bien?", typingMs: 1200 },
       ],
       options: [
-        { label: "muy bien (＾▽＾)", keywords: ["bien", "genial", "perfecto", "estupendo", "guay"], goto: "bien" },
-        { label: "regular / mal (´；ω；`)", keywords: ["mal", "regular", "meh", "cansada", "cansado"], goto: "mal" },
+        { label: "muy bien ♥️", keywords: ["bien", "genial", "perfecto", "estupendo", "guay"], goto: "bien" },
+        { label: "fatal, gracias 🙃", keywords: ["mal", "regular", "meh", "cansada", "cansado"], goto: "mal" },
       ],
     },
 
     bien: {
       bot: [
-        { text: "me alegro (｡•̀ᴗ-)✧ porque vas a necesitar energía para lo que viene", typingMs: 1600 },
+        { text: "me alegro!!😍😍😍 porque igual así tienes energía para lo que voy a proponer", typingMs: 1600 },
       ],
       next: "pista",
     },
 
     mal: {
       bot: [
-        { text: "vaya... pues espero que esto te anime un poco (｡•́︿•̀｡)", typingMs: 1700 },
+        { text: "VAIA. Espero que esto pueda animarte un poco al menos? 😭", typingMs: 1700 },
       ],
       next: "pista",
     },
 
     pista: {
       bot: [
-        { text: "tengo que contarte algo importante", typingMs: 1400 },
+        { text: "si estás en el mood...", typingMs: 1400 },
         { text: "¿sabes qué se celebra el {{event.date}}?", typingMs: 1800, nudge: true },
       ],
       options: [
-        { label: "¿tu cumple?", keywords: ["cumple", "cumpleaños", "cumpleanos", "birthday"], goto: "acertaste" },
+        { label: "¿tu cumple 🎂🎉?", keywords: ["cumple", "cumpleaños", "cumpleanos", "birthday"], goto: "acertaste" },
         { label: "ni idea", keywords: ["no", "ni idea", "no se", "no sé", "nose"], goto: "pista2" },
       ],
     },
 
     pista2: {
       bot: [
-        { text: "va sobre mí... y sobre una fiesta ٩(◕‿◕)۶", typingMs: 1600 },
+        { text: "va sobre mí... y sobre celebrar estar viva 👻", typingMs: 1600 },
       ],
       options: [
-        { label: "¡tu cumple!", keywords: ["cumple", "cumpleaños", "cumpleanos", "birthday"], goto: "acertaste" },
-        { label: "sigo sin saber (・_・;)", keywords: ["*"], goto: "acertaste" },
+        { label: "¡tu cumple 🎂🎉!", keywords: ["cumple", "cumpleaños", "cumpleanos", "birthday"], goto: "acertaste" },
+        { label: "sigo sin tener ni idea", keywords: ["*"], goto: "acertaste" },
       ],
     },
 
     acertaste: {
       bot: [
-        { text: "¡exacto! (灬♥ω♥灬)", typingMs: 1100 },
-        { text: "y quiero que estés ahí conmigo", typingMs: 1400 },
+        { text: "¡yassss! ♥️", typingMs: 1100 },
+        { text: "y me gustaría que te vinieras a celebrar conmigo", typingMs: 1400 },
         { text: "va a ser el {{event.date}}, a las {{event.time}}", typingMs: 1900, nudge: true },
         { text: "en {{event.place}}", typingMs: 1500 },
         { text: "{{event.note}}", typingMs: 1800 },
       ],
       options: [
-        { label: "¡allí estaré! (づ￣ 3￣)づ", keywords: ["si", "sí", "alli", "allí", "estare", "estaré", "claro", "confirmo", "ahi", "ahí", "voy"], goto: "confirmado" },
-        { label: "no voy a poder", keywords: ["no puedo", "no", "paso", "no voy"], goto: "insistir" },
+        { label: "¡Cuenta conmigo, amiga!", keywords: ["si", "sí", "alli", "allí", "estare", "estaré", "claro", "confirmo", "ahi", "ahí", "voy"], goto: "confirmado" },
+        { label: "no voy a poder 🥲", keywords: ["no puedo", "no", "no voy a poder", "no voy"], goto: "insistir" },
       ],
     },
 
     insistir: {
       bot: [
-        { text: "venga porfa (ᗒᗨᗕ) significaría mucho para mí", typingMs: 1700 },
+        { text: "si te insisto, ¿valdría para algo? jajajaj", typingMs: 1700 },
       ],
       options: [
-        { label: "vale, ahí estaré", keywords: ["*"], goto: "confirmado" },
+        { label: "vaaaaale, ahí estaré 🧐", keywords: ["*"], goto: "confirmado" },
       ],
     },
 
     confirmado: {
       bot: [
-        { text: "¡yay! (灬º‿º灬)♡ nos vemos ahí", typingMs: 1500 },
-        { text: "no hace falta que confirmes nada raro, solo que vengas ✎", typingMs: 1700 },
+        { text: "VIVAAA! Nos vemos allí entonces 😎", typingMs: 1500 },
+        { text: "no hace falta que hagas nada más, ¡nos vemos pronto! 💁🏻‍♀️", typingMs: 1700 },
       ],
       celebrate: true,
     },
